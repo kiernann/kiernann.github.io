@@ -1,5 +1,5 @@
 layout: sidebar
-style: light
+style: dark
 
 plugins:
   - jekyll-octicons
@@ -21,38 +21,43 @@ projects:
   # sort_by options:
   #   - pushed
   #   - stars
-  limit: 9
+  limit: 12
   exclude:
     archived: false
-    forks: true
+    forks: false
     projects:
-    # - repo-name
+     - kiernann.com
+     - k5cents.com
+     - plaintext
+     - personal-website
 
-# social_media:
+social_media:
   # behance: your_username
   # dribbble: your_username
   # facebook: your_username
   # hackerrank: your_username
   # instagram: your_username
   # keybase: your_username
-  # linkedin: your_username
-  # mastodon: your_username
-  # medium: your_username
+   linkedin: kiernann
+   mastodon: @kiernan
+   medium: kiernann
   # stackoverflow: your_user_id
   # telegram: your_username
-  # twitter: your_username
+   twitter: kiernxn
   # unsplash: your_username
   # vk: your_username
-  # website: http://your_website_url
-  # youtube: your_username
+  # website: http://kiernann.dev
+  # youtube: KiernanNicholls
 
 topics:
-  - name: CSS
-    web_url: https://github.com/topics/css
-    image_url: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/css/css.png
+  - name: R
+    web_url: https://github.com/topics/R
+    image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/r/r.png
 
-  - name: Web design
+  - name: Tidyverse
+    web_url: https://github.com/topics/tidyverse
+    image_url: https://www.tidyverse.org/images/hex-tidyverse.png
 
-  - name: Sass
+  - name: Markdown
     web_url: https://github.com/topics/sass
-    image_url: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/sass/sass.png
+    image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/markdown/markdown.png
