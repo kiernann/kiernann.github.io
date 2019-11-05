@@ -29,7 +29,10 @@ projects:
      - kiernann.com
      - k5cents.com
      - plaintext
-     - personal-website
+     - kiernann.github.io
+     - duckr
+     - predictr
+     - usethis
 
 social_media:
   # behance: your_username
