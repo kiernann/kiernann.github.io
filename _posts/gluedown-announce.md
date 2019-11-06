@@ -1,0 +1,210 @@
+gluedown
+================
+
+Version 1.0.0 of my `gluedown` package has just been accepted on CRAN
+and can now be installed\! The package allows R users to more easily
+transition between vectors and printed markdown text. The `md_*()`
+functions primarily use
+[`glue::glue()`](https://github.com/tidyverse/glue) to concatenate R
+vectors with the neccesary markdown syntax. By setting `results='asis'`
+in the `knitr` chunk options on an `.Rmd` document, any printed markdown
+vectors are included in the document body immediately following that
+chunk.
+
+## Installation
+
+Version 1.0.0 of the package can now be installed from
+[CRAN](https://cran.r-project.org/package=gluedown):
+
+``` r
+install.packages("gluedown")
+```
+
+You can also install the most recent development version from
+[GitHub](https://github.com/kiernann/gluedown):
+
+``` r
+# install.packages("remotes")
+remotes::install_github("kiernann/gluedown")
+```
+
+## Content
+
+The `gluedown` package covers nearly every section of the [GitHub
+Flavored Markdown Specification](https://github.github.com/gfm/),
+allowing users to create dozens of markdown block
+types.
+
+| Spec | Feature           | Type            | R Function       | HTML Tag       |
+| :--- | :---------------- | :-------------- | :--------------- | :------------- |
+| 4.01 | Thematic breaks   | Leaf block      | `md_rule()`      | `<hr>`         |
+| 4.02 | ATX headings      | Leaf block      | `md_heading()`   | `<h1>`         |
+| 4.03 | Setext headings   | Leaf block      | `md_setext()`    | `<h2>`         |
+| 4.04 | Indented code     | Leaf block      | `md_indent()`    | `<code>`       |
+| 4.05 | Fenced code       | Leaf block      | `md_fence()`     | `<code>`       |
+| 4.07 | Link reference    | Leaf block      | `md_reference()` | `<a>`          |
+| 4.80 | Paragraphs        | Leaf block      | `md_paragraph()` | `<p>`          |
+| 4.90 | Blank lines       | Leaf block      | `md_blank()`     |                |
+| 4.10 | Tables            | Leaf block      | `md_table()`     | `<table>`      |
+| 5.01 | Block quotes      | Container block | `md_quote()`     | `<blockquote>` |
+| 5.03 | Task list items   | Container block | `md_task()`      | `<ul>`         |
+| 5.04 | Ordered list      | Container block | `md_order()`     | `<ol>`         |
+| 5.04 | Bullet lists      | Container block | `md_bullet()`    | `<ul>`         |
+| 5.04 | Definition list   | Container block | `md_define()`    | `<dl>`         |
+| 6.01 | Backslash escapes | Inline          | `md_escape()`    | `<p>`          |
+| 6.03 | Code spans        | Inline          | `md_code()`      | `<code>`       |
+| 6.04 | Emphasis          | Inline          | `md_italic()`    | `<emp>`        |
+| 6.05 | Strikethrough     | Inline          | `md_strike()`    | `<strike>`     |
+| 6.06 | Links             | Inline          | `md_link()`      | `<a>`          |
+| 6.07 | Images            | Inline          | `md_image()`     | `<img>`        |
+| 6.08 | Autolinks         | Inline          | `md_autolink()`  | `<a>`          |
+| 6.10 | Raw HTML          | Inline          | `md_convert()`   |                |
+| 6.11 | Disallowed HTML   | Inline          | `md_disallow()`  |                |
+| 6.12 | Hard line breaks  | Inline          | `md_hardline()`  | `<br/>`        |
+
+## Usage
+
+``` r
+library(gluedown)
+library(tidyverse)
+library(rvest)
+library(glue)
+```
+
+### Process
+
+Say we have some vector of state names.
+
+``` r
+states <- sample(state.name, size = 5)
+```
+
+The simplest way to show this vector is with `print()`:
+
+``` r
+print(states)
+#> [1] "Massachusetts" "Kansas"        "Maryland"      "Connecticut"  
+#> [5] "South Dakota"
+```
+
+The `cat()` function provides a little more functionality, especially if
+we tell `knitr` to return the results *as is*:
+
+``` r
+cat(states)
+```
+
+Massachusetts Kansas Maryland Connecticut South Dakota
+
+To make this more readable, we can separate the elements with a spaces
+and a new line character.
+
+``` r
+cat(states, sep = "  \n")
+```
+
+Massachusetts  
+Kansas  
+Maryland  
+Connecticut  
+South Dakota
+
+To render this as a *bullet* list, we have to prepend each line with an
+asterisk. Easily enough, but our once-simple `cat()` usage is now a
+little cumbersome.
+
+``` r
+cat(paste("*", states), sep = "\n")
+```
+
+  - Massachusetts
+  - Kansas
+  - Maryland
+  - Connecticut
+  - South Dakota
+
+Using `glue()`, the same result can be created more easily.
+
+``` r
+glue("* {states}")
+```
+
+  - Massachusetts
+  - Kansas
+  - Maryland
+  - Connecticut
+  - South Dakota
+
+The `md_order()` function essentially wraps around the above `glue()`
+usage.
+
+``` r
+md_bullet(states)
+```
+
+  - Massachusetts
+  - Kansas
+  - Maryland
+  - Connecticut
+  - South Dakota
+
+### Pipes
+
+All functions are designed to fit within the tidyverse ecosystem by
+working with
+[pipes](https://magrittr.tidyverse.org/reference/pipe.html). Chain
+together some code and print the formatted results to your markdown
+document. Here, instead of copy-pasting this quote from Wikipedia, we
+can use the `rvest` package to create a block quote programatically.
+
+``` r
+read_html("https://w.wiki/A58") %>% 
+  html_node("blockquote") %>% 
+  html_text(trim = TRUE) %>% 
+  str_remove("\\[(.*)\\]") %>% 
+  md_quote()
+```
+
+> We the People of the United States, in Order to form a more perfect
+> Union, establish Justice, insure domestic Tranquility, provide for the
+> common defence, promote the general Welfare, and secure the Blessings
+> of Liberty to ourselves and our Posterity, do ordain and establish
+> this Constitution for the United States of America.
+
+The quote isn’t explictly contained in the `.Rmd` document, but it is
+found in the `.md` file created and the `.html` file you’re reading now.
+
+### Extensions
+
+The package primarily uses [GitHub Flavored
+Markdown](https://github.github.com/gfm/) (GFM). With this flavor, some
+useful extensions like [task
+lists](https://help.github.com/en/articles/about-task-lists) are
+supported on GitHub. Be mindful of how these results look in your venue
+render.
+
+``` r
+legislation <- c("Houses passes", "Senate concurs", "President signs")
+md_task(legislation, check = 1:2)
+```
+
+  - \[x\] Houses passes
+  - \[x\] Senate concurs
+  - \[ \] President signs
+
+### Inline
+
+You can also use `gluedown` to format R [inline code
+results](https://rmarkdown.rstudio.com/lesson-4.html). First, use R to
+calculate a result.
+
+``` r
+name <- sample(state.name, 1)
+abb <- state.abb[match(name, state.name)]
+# `r md_bold(name)`
+# `r md_italic(abb)`
+```
+
+Then you can easily print that result in the middle of regular text with
+markdown formatting. In this case, our randomly selected state is
+**Mississippi**, which has the abbreviation *MS*.
