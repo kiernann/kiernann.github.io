@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/kiernxn
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://kiernann.com
+  * I am kiernxn (https://keybase.io/kiernxn) on keybase.
+  * I have a public key ASAhsMx6AGPlWh7FmSynjb9T_NKv5-yxuk6gI0pjad8vHwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012021b0cc7a0063e55a1ec5992ca78dbf53fcd2afe7ecb1ba4ea0234a6369df2f1f0a",
+      "host": "keybase.io",
+      "kid": "012021b0cc7a0063e55a1ec5992ca78dbf53fcd2afe7ecb1ba4ea0234a6369df2f1f0a",
+      "uid": "526bd47994f8ab741e73494e92efce19",
+      "username": "kiernxn"
+    },
+    "merkle_root": {
+      "ctime": 1573658273,
+      "hash": "f6027c3e9dc7055942126d7f7f9be873f162403c1f6e823ad03e2bfa7f32e2c6ca774bd8c4ce7704a244cabd5eaf0befad8173dbf4b803c283a11974876775fc",
+      "hash_meta": "bb47e512da8d0752dca743a9fee984dae5cafe220d2797c6e992d66f790b227f",
+      "seqno": 9367557
+    },
+    "service": {
+      "entropy": "Ma1cTvT9o5ScfcKPVAzB8PZT",
+      "hostname": "kiernann.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "4.7.2"
+  },
+  "ctime": 1573658286,
+  "expire_in": 504576000,
+  "prev": "9da730a793537dffa581839086fe4651f9fa504ecb5d0e85ba34a7f6e6855aab",
+  "seqno": 12,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgIbDMegBj5VoexZksp42/U/zSr+fssbpOoCNKY2nfLx8Kp3BheWxvYWTESpcCDMQgnacwp5NTff+lgYOQhv5GUfn6UE7LXQ6FujSn9uaFWqvEINutV+inR/FkZaNbm+vLuorTgeV3zhcd/0HqiTlxsVGhAgHCo3NpZ8RAK0uWftvf7/k8m78G+j2PqOgKkuuYjWhODH87Gx8nX+5NlW2hz0kLWrWETdwc0T09YKnyjPBsYZVAWnNPxd07DqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIExOfMwVKzpdRH6/8J8R86y0EUXIXB6L2NwAIvb0Hb+0o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kiernxn
+
+==================================================================
