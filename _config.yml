@@ -23,8 +23,8 @@ projects:
   #   - stars
   limit: 12
   exclude:
-    archived: false
-    forks: false
+    archived: true
+    forks: true
     projects:
      - kiernann.com
      - k5cents.com
@@ -33,6 +33,10 @@ projects:
      - duckr
      - predictr
      - usethis
+     - stringr
+     - aaa
+     - demnom
+     - scales
 
 social_media:
   # behance: your_username
