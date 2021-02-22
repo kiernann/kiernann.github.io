@@ -21,10 +21,10 @@ projects:
   # sort_by options:
   #   - pushed
   #   - stars
-  limit: 12
+  limit: 9
   exclude:
     archived: true
-    forks: true
+    forks: false
     projects:
      - kiernann.com
      - k5cents.com
@@ -44,10 +44,10 @@ social_media:
   # facebook: your_username
   # hackerrank: your_username
   # instagram: your_username
-  # keybase: your_username
+  # keybase: kiernxn
    linkedin: kiernann
-   mastodon: kiernan
-   medium: kiernann
+  # mastodon: kiernan
+  # medium: kiernann
   # stackoverflow: your_user_id
   # telegram: your_username
    twitter: kiernxn
@@ -61,10 +61,22 @@ topics:
     web_url: https://github.com/topics/R
     image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/r/r.png
 
-  - name: Prediction Markets
-    web_url: https://www.predictit.org/
-    image_url: https://miro.medium.com/max/3150/0*3UQvgtzmyPpZ-cSJ.png
+  - name: Markdown
+    web_url: https://github.com/topics/R
+    image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/markdown/markdown.png
 
-  - name: Politics
-    web_url: https://www.reddit.com/r/politics
-    image_url: https://www.uokpl.rs/fpng/f/519-5194587_politics-icon-transparent.png
+  - name: Raspberry Pi
+    web_url: https://github.com/topics/raspberry-pi
+    image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/raspberry-pi/raspberry-pi.png
+
+  - name: Ubuntu
+    web_url: https://github.com/topics/ubuntu
+    image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/ubuntu/ubuntu.png
+
+  - name: Bitcoin
+    web_url: https://github.com/topics/bitcoin
+    image_url: https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/bitcoin/bitcoin.png
+
+  - name: Tidyverse
+    web_url: https://github.com/tidyverse/
+    image_url: https://avatars.githubusercontent.com/u/22032646
